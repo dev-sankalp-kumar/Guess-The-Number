@@ -1,0 +1,100 @@
+let randomNUmber = parseInt(Math.random() * 100 + 1);
+
+console.log(randomNUmber);
+
+
+const userInput = document.getElementById('guessField');
+const submitBtn = document.getElementById('submit');
+const message = document.querySelector('.msg')
+const guessArray = document.querySelector('.guessArray')
+const result = document.querySelector('.messsageContainer')
+const remaining = document.querySelector('.remaining')
+
+
+let previousGuess = []
+
+const button = document.createElement('button')
+let attempt = 10
+
+let playGame = true
+
+
+
+if (playGame === true) {
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        let guess = userInput.value;
+        if (guess < 1) {
+            alert('Please enter a number more than 0')
+        }
+        else if (guess > 100) {
+            alert('Please enter a number less than 100')
+        } else {
+            if (guess < randomNUmber) {
+                message.innerHTML = `Number is too low, Guess Again`
+
+            } else if (guess > randomNUmber) {
+                message.innerHTML = `Number is too high, Guess Again`
+            } else {
+                message.innerHTML = ` Yah! You Guessed it right`
+                endGame();
+            }
+
+
+            previousGuess.push(guess)
+            displayGuess();
+            attempt--
+            remaining.innerHTML = `Remaining Attempts: ${attempt}`
+        }
+
+        userInput.value = ''
+
+        if (attempt === 0) {
+            message.innerHTML = `Game Over! The number was ${randomNUmber}`
+            playGame = false
+            endGame()
+        }
+
+
+
+    })
+
+}
+
+
+function displayGuess() {
+    guessArray.innerHTML = `Your Guesses: ${previousGuess} `
+
+}
+
+function endGame() {
+    userInput.setAttribute('disabled', '')
+    submitBtn.setAttribute('disabled', '')
+    result.appendChild(button)
+    button.innerHTML = `Start New Game`
+    button.style.backgroundColor = "#4338CA"
+    button.style.color = "white"
+    button.style.cursor = "pointer"
+    submitBtn.style.cursor = "default"
+
+    startGame()
+
+}
+
+
+function startGame() {
+    button.addEventListener('click', (e) => {
+        randomNUmber = parseInt(Math.random() * 100 + 1);
+        attempt = 10
+        remaining.innerHTML = `Remaining Attempts: ${attempt}`
+        userInput.removeAttribute('disabled', '')
+        submitBtn.removeAttribute('disabled', '')
+        submitBtn.style.cursor = "pointer"
+        button.remove()
+        guessArray.innerHTML = ''
+        message.innerHTML = ''
+        previousGuess = []
+
+    }
+    )
+}
