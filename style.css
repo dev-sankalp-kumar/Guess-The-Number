@@ -5,6 +5,9 @@
 
 body {
     background-color: rgb(255, 255, 255);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -95,4 +98,66 @@ button {
     margin-top: 1rem;
     color: rgb(0, 0, 0);
     font-size: 25px;
+}
+
+.container {
+    min-width: 500px;
+    flex: 1;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.mode {
+    /* height: 80px; */
+    /* width: 260px; */
+    text-align: center;
+    /* line-height: 80px; */
+    border-radius: 16px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+}
+
+
+
+#easy,
+#medium,
+#hard {
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 270px;
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    height: 95px;
+}
+
+#easy {
+    background-color: green;
+}
+
+#medium {
+    background-color: rgb(200 200 51);
+}
+
+
+#hard {
+    background-color: red;
+}
+
+.attempt-count {
+    color: white;
+}
+
+a {
+    text-decoration: none;
 }

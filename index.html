@@ -10,23 +10,37 @@
 
 <body>
     <header>
-        <h1>Guess a Number between 1 to 100</h1>
+        <h1>Guess The Number Game</h1>
     </header>
-   
-    <form action="">
-        <p class="attempts">You have 10 attempts</p>
-        <input type="number" onkeydown="return event.key !== 'e' && event.key !== 'E'" id="guessField"
-            autocomplete="off">
-        <input type="submit" id="submit">
-    </form>
-    <div class="messsageContainer">
-        <p class="remaining">Remaining Attempts: 10</p>
-        <p class="guessArray"></p>
-        <p class="msg"></p>
-    </div>
-   
 
-    <script src="script.js"></script>
+    <div class="container">
+
+        <a href="game.html?mode=easy">
+            <div id="easy">
+                <p class="mode">Easy</p>
+                <p class="attempt-count">20 Attempts</p>
+            </div>
+        </a>
+        <a href="game.html?mode=medium">
+            <div id="medium">
+                <p class="mode">Medium</p>
+                <p class="attempt-count">10 Attempts</p>
+            </div>
+        </a>
+        <a href="game.html?mode=hard">
+            <div id="hard">
+                <p class="mode">Hard</p>
+                <p class="attempt-count">5 Attempts</p>
+            </div>
+        </a>
+
+
+
+    </div>
+
+
+
+   
 </body>
 
 </html>

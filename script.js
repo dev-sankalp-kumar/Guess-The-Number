@@ -2,6 +2,10 @@ let randomNUmber = parseInt(Math.random() * 100 + 1);
 
 console.log(randomNUmber);
 
+const params = new URLSearchParams(window.location.search);
+const mode = params.get('mode');
+
+
 
 const userInput = document.getElementById('guessField');
 const submitBtn = document.getElementById('submit');
@@ -9,15 +13,36 @@ const message = document.querySelector('.msg')
 const guessArray = document.querySelector('.guessArray')
 const result = document.querySelector('.messsageContainer')
 const remaining = document.querySelector('.remaining')
+const attemptsText = document.querySelector('.attempts');
+
+
 
 
 let previousGuess = []
 
 const button = document.createElement('button')
-let attempt = 10
+
+let attempt;
+
+if (mode === 'easy') {
+    attempt = 20;
+}
+else if (mode === 'medium') {
+    attempt = 10;
+}
+else if (mode === 'hard') {
+    attempt = 5;
+}
+else {
+    attempt = 10;
+}
+
 
 let playGame = true
 
+
+attemptsText.innerHTML = `You have ${attempt} attempts`;
+remaining.innerHTML = `Remaining Attempts: ${attempt}`;
 
 
 if (playGame === true) {
@@ -85,7 +110,20 @@ function endGame() {
 function startGame() {
     button.addEventListener('click', (e) => {
         randomNUmber = parseInt(Math.random() * 100 + 1);
-        attempt = 10
+
+
+        if (mode === 'easy') {
+            attempt = 20;
+        }
+        else if (mode === 'medium') {
+            attempt = 10;
+        }
+        else {
+            attempt = 5;
+        }
+
+
+        
         remaining.innerHTML = `Remaining Attempts: ${attempt}`
         userInput.removeAttribute('disabled', '')
         submitBtn.removeAttribute('disabled', '')
