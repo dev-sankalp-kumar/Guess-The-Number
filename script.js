@@ -14,6 +14,16 @@ const guessArray = document.querySelector('.guessArray')
 const result = document.querySelector('.messsageContainer')
 const remaining = document.querySelector('.remaining')
 const attemptsText = document.querySelector('.attempts');
+const hint = document.querySelector('.icons');
+const hintMsg = document.querySelector('.hint-msg');
+
+hint.addEventListener("click", ()=> {
+    if (randomNUmber % 2 === 0){
+        hintMsg.innerText = 'Your Number is Even'
+    } else {
+         hintMsg.innerText = 'Your Number is Odd'
+    }
+})
 
 
 

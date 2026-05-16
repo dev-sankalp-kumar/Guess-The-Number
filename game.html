@@ -12,19 +12,23 @@
     <header>
         <h1>Guess a Number between 1 to 100</h1>
     </header>
-   
+
     <form action="">
         <p class="attempts">You have 10 attempts</p>
         <input type="number" onkeydown="return event.key !== 'e' && event.key !== 'E'" id="guessField"
             autocomplete="off">
-        <input type="submit" id="submit">
+        <div class="buttons">
+            <input type="submit" id="submit">
+            <img class="icons" src="/assets/icons/lightbulb-solid-full.svg" alt="" width="40px">
+        </div>
     </form>
     <div class="messsageContainer">
         <p class="remaining">Remaining Attempts: 10</p>
         <p class="guessArray"></p>
         <p class="msg"></p>
+        <p class="hint-msg"></p>
     </div>
-   
+
 
     <script src="script.js"></script>
 </body>

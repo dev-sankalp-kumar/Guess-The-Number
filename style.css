@@ -40,12 +40,13 @@ form {
     margin-top: 5rem;
 }
 
-input {
+/* input {
     margin-top: 1.5rem;
 
-}
+} */
 
 #guessField {
+    margin-top: 1.5rem;
     height: 3rem;
     width: 350px;
     border-radius: 10px;
@@ -67,6 +68,8 @@ input {
     cursor: pointer;
 
 }
+
+
 
 
 .messsageContainer {
@@ -129,7 +132,7 @@ button {
 #easy,
 #medium,
 #hard {
-   display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -161,3 +164,22 @@ button {
 a {
     text-decoration: none;
 }
+
+.buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.icons {
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.hint-msg {
+    margin-top: 1rem;
+    color: green;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
